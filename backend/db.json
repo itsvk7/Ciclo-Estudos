@@ -1,0 +1,29 @@
+{
+  "materias": [
+    {
+      "nome": "Matemática",
+      "horas": 8,
+      "marcadas": 0
+    },
+    {
+      "nome": "Português",
+      "horas": 4,
+      "marcadas": 0
+    },
+    {
+      "nome": "Física",
+      "horas": 8,
+      "marcadas": 0
+    },
+    {
+      "nome": "Química",
+      "horas": 6,
+      "marcadas": 0
+    },
+    {
+      "nome": "Inglês",
+      "horas": 4,
+      "marcadas": 0
+    }
+  ]
+}

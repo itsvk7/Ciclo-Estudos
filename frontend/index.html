@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ciclo ITA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+</head>
+<body>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <h2 id="modal-title"></h2>
+
+      <form id="modal-form">
+        <div id="input-wrapper">
+          <input
+            id="modal-input"
+            type="text"
+            placeholder="Digite o nome"
+          />
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="confirmar">Confirmar</button>
+          <button type="button" id="cancelar">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <nav>
+    <h1>Ciclo de Estudos — ITA</h1>
+    <button type="button" onclick="add()"><i class="fi fi-br-plus-small"></i></button>
+  </nav>
+
+  <div id="ciclo"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

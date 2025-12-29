@@ -1,0 +1,343 @@
+:root {
+  /* Base */
+  --bg-body: #12122c;
+  --text-primary: #e5e7eb;
+
+  /* Surfaces */
+  --bg-surface: #020617;
+  --bg-overlay: rgba(2, 6, 23, 0.75);
+
+  /* Borders */
+  --border-default: rgba(148, 163, 184, 0.25);
+  --border-soft: rgba(148, 163, 184, 0.15);
+  --border-input: rgba(148, 163, 184, 0.2);
+
+  /* Shadows */
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.4);
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.1);
+  --shadow-inset-light: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-inset-lighter: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  --shadow-inset-minimal: inset 0 1px 0 rgba(255, 255, 255, 0.01);
+
+  /* Text */
+  --text-muted: #94a3b8;
+
+  /* Primary */
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-focus: rgba(99, 102, 241, 0.25);
+
+  /* Error */
+  --error: #ef4444;
+  --error-focus: rgba(239, 68, 68, 0.3);
+
+  /* Success */
+  --success: #22c55e;
+  --success-border: #16a34a;
+
+  /* Neutral */
+  --neutral-hover: #334155;
+  --neutral-soft: rgba(148, 163, 184, 0.08);
+  --divider: #3341553d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-body);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 20px;
+  min-height: calc(100vh - 18px);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: linear-gradient(180deg, var(--bg-surface), var(--bg-surface));
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 360px;
+  padding: 22px;
+  box-shadow:
+    var(--shadow-lg),
+    var(--shadow-inset-light);
+
+  animation: modal-in 0.25s ease;
+}
+
+.modal-box h2 {
+  text-align: center;
+  margin: 0 0 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.modal-box input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+
+  background: var(--bg-surface);
+  border: 1px solid var(--border-input);
+  border-radius: 8px;
+
+  color: var(--text-primary);
+  font-size: 0.95rem;
+
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.modal-box input::placeholder {
+  color: var(--text-muted);
+}
+
+.modal-box input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-focus);
+}
+
+.input-error {
+  border-color: var(--error) !important;
+  box-shadow: 0 0 0 2px var(--error-focus);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.actions button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+
+  background: transparent;
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.actions button:hover {
+  background: var(--neutral-soft);
+}
+
+.actions button:active {
+  transform: scale(0.97);
+}
+
+.actions button[type="submit"] {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.actions button[type="submit"]:hover {
+  background: var(--primary-hover);
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto 30px auto;
+
+  background: linear-gradient(180deg, var(--bg-surface), var(--bg-surface));
+  box-shadow:
+    var(--shadow-soft),
+    var(--shadow-inset-minimal);
+  padding: 14px 20px;
+  border-radius: 12px;
+}
+
+nav h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+#ciclo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.materia {
+  background: linear-gradient(180deg, var(--bg-surface), var(--bg-surface));
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow:
+    var(--shadow-md),
+    var(--shadow-inset-lighter);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.materia:hover {
+  transform: scale(1.005);
+}
+
+.materia .header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+}
+
+.materia .header::after {
+  content: "";
+  position: absolute;
+  left: -22px;
+  right: -22px;
+  bottom: 0;
+  height: 3px;
+  background: var(--divider);
+}
+
+.materia .header h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.horas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.hora {
+  width: clamp(28px, 9vw, 36px);
+  height: clamp(28px, 9vw, 36px);
+  background: transparent;
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hora:hover {
+  background: var(--neutral-hover);
+}
+
+.hora.marcada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--success);
+  border-color: var(--success-border);
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.controls button {
+  flex: 1;
+}
+
+button {
+  background: transparent;
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  padding: 11px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+button i {
+  font-size: 1.2rem;
+  display: flex
+}
+
+button:hover {
+  background: var(--neutral-hover);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 415px) {
+  body {
+    padding: 14px;
+  }
+
+  .modal-box {
+    width: 90%;
+    padding: 18px;
+  }
+
+  nav h1 {
+    font-size: .95rem;
+  }
+
+  .materia {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .materia .header::after {
+    left: -16px;
+    right: -16px;
+  }
+
+  .materia .header h2 {
+    font-size: 0.95rem;
+  }
+
+  .horas {
+    gap: 8px;
+  }
+
+  button {
+    padding: 7px;
+  }
+
+  button i {
+    font-size: 1rem;
+  }
+}
